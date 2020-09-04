@@ -1,10 +1,10 @@
 import parseScheduleHtml from 'holo-schedule';
 import getScheduleHtml from 'holo-schedule/lib/getScheduleHtml';
-import fs from 'fs';
+import { writeFile } from 'fs';
 
-function writeFile(path: string, data: string): Promise<void> {
+function write(path: string, data: string): Promise<void> {
   return new Promise((resolve, reject) => {
-    fs.writeFile(path, data, (err) => {
+    writeFile(path, data, (err) => {
       if (err) {
         reject(err);
       } else {
@@ -19,8 +19,8 @@ async function main() {
   const { lives, dict } = parseScheduleHtml(html);
 
   return Promise.all([
-    writeFile('public/data/schedule.json', JSON.stringify(lives)),
-    writeFile('public/data/imageMap.json', JSON.stringify(dict)),
+    write('public/data/schedule.json', JSON.stringify(lives)),
+    write('public/data/imageMap.json', JSON.stringify(dict)),
   ]);
 }
 

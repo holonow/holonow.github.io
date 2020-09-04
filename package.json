@@ -19,6 +19,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "build-data": "tsc bin/updateSchedule && node bin/updateSchedule.js && rm bin/updateSchedule.js",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
