@@ -19,7 +19,7 @@ function LiveText(props: Props) {
     <div className="LiveText">
       {timeStr}
       <br />
-      {names}
+      {names.join(' ')}
       <br />
       <a href={link}>{link}</a>
     </div>

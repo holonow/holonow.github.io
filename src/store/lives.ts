@@ -1,4 +1,4 @@
-import { atom } from 'recoil';
+import { atom, selector } from 'recoil';
 import { Live } from '../types';
 
 interface LiveState {
@@ -14,6 +14,18 @@ const defaultState: LiveState = {
 const lives = atom({
   key: 'lives',
   default: defaultState,
+});
+
+export const incomingLives = selector({
+  key: 'incomingLives',
+  get: ({ get }) => {
+    const state = get(lives);
+
+    const aHourBefore = Date.now() - 3600 * 1000;
+    return state.lives.filter((live) => (
+      live.time.valueOf() > aHourBefore
+    ));
+  },
 });
 
 export default lives;
