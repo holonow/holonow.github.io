@@ -2,6 +2,7 @@ import React from 'react';
 import { RecoilRoot } from 'recoil';
 import './App.css';
 import AppEffect from './components/AppEffect';
+import LiveTextList from './components/LiveTextList';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
             (Coming soon)
           </p>
         </header>
+        <LiveTextList />
       </div>
     </RecoilRoot>
   );

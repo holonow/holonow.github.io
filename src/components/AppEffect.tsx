@@ -11,7 +11,10 @@ async function getLives(): Promise<Live[]> {
     throw new Error('Get lives failed');
   }
 
-  return lives;
+  return lives.map((live) => ({
+    ...live,
+    time: new Date(live.time),
+  }));
 }
 
 function AppEffect() {
