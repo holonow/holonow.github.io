@@ -11,6 +11,11 @@ function NavBar() {
         <li>
           <Link to="/text">Text Format</Link>
         </li>
+        <li>
+          <a target="_blank" rel="noreferrer noopener" href="https://holonow.github.io/holo-data/schedule.json">
+            JSON
+          </a>
+        </li>
       </ul>
     </nav>
   );
