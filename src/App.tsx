@@ -3,6 +3,7 @@ import { RecoilRoot } from 'recoil';
 import './App.css';
 import AppEffect from './components/AppEffect';
 import LiveTextList from './components/LiveTextList';
+import LiveFancyList from './components/LiveFancyList';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
             (Coming soon)
           </p>
         </header>
+        <LiveFancyList />
         <LiveTextList />
       </div>
     </RecoilRoot>
