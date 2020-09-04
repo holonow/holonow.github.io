@@ -8,6 +8,7 @@
     "recoil": "0.0.10"
   },
   "scripts": {
+    "lint": "eslint src/**/*",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",

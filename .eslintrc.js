@@ -4,7 +4,9 @@ module.exports = {
     es6: true,
   },
   extends: [
+    'eslint:recommended',
     'plugin:react/recommended',
+    'plugin:@typescript-eslint/recommended',
     'airbnb',
   ],
   globals: {
@@ -24,8 +26,23 @@ module.exports = {
     '@typescript-eslint',
   ],
   rules: {
-    rules: {
-      "react/jsx-filename-extension": [2, { "extensions": [".tsx", ".jsx"] }]
-    }
+    "import/extensions": [
+      "error",
+      "ignorePackages",
+      {
+        "ts": "never",
+        "tsx": "never"
+      }
+   ],
+   "react/jsx-filename-extension": [2, { "extensions": [".tsx", ".jsx"] }],
+   "@typescript-eslint/explicit-module-boundary-types": "off",
   },
+  settings: {
+    'import/resolver': {
+        node: {
+            extensions: ['.js', '.jsx', '.ts', '.tsx'],
+            moduleDirectory: ['node_modules', 'src/'],
+        },
+    },
+  }
 };
