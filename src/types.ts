@@ -6,6 +6,7 @@ export interface Live {
   link: string;
   videoId: string;
   livePreviewImage: string;
+  title?: string;
 }
 export interface LiveGroup {
   date: string

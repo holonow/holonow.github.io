@@ -23,7 +23,7 @@ export const incomingLives = selector({
 
     const aHourBefore = Date.now() - 3600 * 1000;
     return state.lives.filter((live) => (
-      live.time.valueOf() > aHourBefore
+      live.streaming || live.time.valueOf() > aHourBefore
     ));
   },
 });

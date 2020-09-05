@@ -12,10 +12,11 @@ const Time = styled.time`
   display: block;
   font-weight: bold;
   padding: .5rem;
+  text-align: center;
 `;
 
 const Section = styled.section`
-  border-top: solid 1px gray;
+  border-top: solid 1px lightgray;
   margin-top: .5rem;
 `;
 
