@@ -23,10 +23,11 @@ const Li = styled.li`
   padding: 5px;
   color: white;
   text-decoration: none;
-}
-a:hover {
-  background-color: black;
-}
+  }
+
+  a:hover {
+    background-color: black;
+  }
 `;
 
 function NavBar() {
