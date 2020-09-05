@@ -35,7 +35,7 @@ function NavBar() {
     <Nav>
       <Ul>
         <Li>
-          <Link to="/">Home</Link>
+          <Link style={{ fontWeight: 'bold' }} to="/">[Holo now]</Link>
         </Li>
         <Li>
           <Link to="/text">Text</Link>

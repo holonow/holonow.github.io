@@ -16,8 +16,9 @@ const Time = styled.time`
 `;
 
 const Section = styled.section`
-  border-top: solid 1px lightgray;
+  border-bottom: solid 1px lightgray;
   margin-top: .5rem;
+  padding-bottom: 1rem;
 `;
 
 const LiveContainer = styled.div`

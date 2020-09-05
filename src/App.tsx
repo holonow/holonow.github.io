@@ -27,15 +27,6 @@ function App() {
         <div className="App">
           <NavBar />
           <Main>
-            <header className="App-header">
-              <h1>Holo Now</h1>
-              <p>
-                A Tool to Watch Hololive
-              </p>
-              <p>
-                (Coming soon)
-              </p>
-            </header>
             <Switch>
               <Route path="/text">
                 <LiveTextList />

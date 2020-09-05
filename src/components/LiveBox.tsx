@@ -8,8 +8,13 @@ interface Props {
   live: Live
 }
 
+interface ImageProps {
+  streaming: boolean;
+}
+
 const Image = styled.img`
   width: 100%;
+  border: ${(props: ImageProps) => (props.streaming ? 'red' : 'lightgray')} solid 2px;
 `;
 
 const Thumbnail = styled.a`
@@ -18,6 +23,7 @@ const Thumbnail = styled.a`
 `;
 
 const Card = styled.div`
+  color: #444;
 `;
 
 const Box = styled.div`
@@ -32,7 +38,7 @@ const Time = styled.time`
 
 function LiveBox({ live }: Props) {
   const {
-    link, livePreviewImage, time, streamer, guests, title,
+    link, livePreviewImage, time, streamer, guests, title, streaming,
   } = live;
   const names = [streamer, ...guests];
 
@@ -43,7 +49,7 @@ function LiveBox({ live }: Props) {
           {dayjs(time).format('HH:mm')}
         </Time>
         <Thumbnail href={link}>
-          <Image alt="video-preview" src={livePreviewImage} />
+          <Image alt="video-preview" src={livePreviewImage} streaming={streaming} />
         </Thumbnail>
         {title && title.slice(0, 20)}
         <br />
