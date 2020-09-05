@@ -5,12 +5,17 @@ import {
   Switch,
   Route,
 } from 'react-router-dom';
+import styled from '@emotion/styled';
 
-import './App.css';
 import AppEffect from './components/AppEffect';
 import LiveTextList from './components/LiveTextList';
 import LiveFancyList from './components/LiveFancyList';
 import NavBar from './components/NavBar';
+
+const Main = styled.main`
+  padding-left: clamp(.5rem, 2vw, 1rem);
+  padding-right: clamp(.5rem, 2vw, 1rem);
+`;
 
 function App() {
   return (
@@ -19,7 +24,7 @@ function App() {
         <AppEffect />
         <div className="App">
           <NavBar />
-          <main className="Main">
+          <Main>
             <header className="App-header">
               <h1>Holo Now</h1>
               <p>
@@ -37,7 +42,7 @@ function App() {
                 <LiveFancyList />
               </Route>
             </Switch>
-          </main>
+          </Main>
         </div>
       </RecoilRoot>
     </Router>
