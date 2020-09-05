@@ -38,7 +38,7 @@ const Time = styled.time`
 
 function LiveBox({ live }: Props) {
   const {
-    link, livePreviewImage, time, streamer, guests, title, streaming,
+    link, livePreviewImage, time, streamer, guests, streaming,
   } = live;
   const names = [streamer, ...guests];
 
@@ -51,8 +51,6 @@ function LiveBox({ live }: Props) {
         <Thumbnail href={link}>
           <Image alt="video-preview" src={livePreviewImage} streaming={streaming} />
         </Thumbnail>
-        {title && title.slice(0, 20)}
-        <br />
         {names.join(' ')}
       </Card>
     </Box>
