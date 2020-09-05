@@ -5,14 +5,15 @@ import { incomingLives } from '../store/lives';
 import { groupByDay } from '../util/groupByDay';
 import LiveText from './LiveText';
 
-function LiveList() {
+function LiveTextList() {
   const allLives = useRecoilValue(incomingLives);
   const groups = groupByDay(allLives);
 
   const groupNodes = groups.map(({ date, lives }) => {
     const liveNodes = lives.map((live) => (
-      <LiveText live={live} />
+      <LiveText key={live.videoId} live={live} />
     ));
+
     return (
       <div key={date}>
         <h2>{date}</h2>
@@ -28,4 +29,4 @@ function LiveList() {
   );
 }
 
-export default LiveList;
+export default LiveTextList;

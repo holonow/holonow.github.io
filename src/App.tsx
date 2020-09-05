@@ -19,23 +19,25 @@ function App() {
         <AppEffect />
         <div className="App">
           <NavBar />
-          <header className="App-header">
-            <h1>Holo Now</h1>
-            <p>
-              A Tool to Watch Hololive
-            </p>
-            <p>
-              (Coming soon)
-            </p>
-          </header>
-          <Switch>
-            <Route path="/text">
-              <LiveTextList />
-            </Route>
-            <Route path="/">
-              <LiveFancyList />
-            </Route>
-          </Switch>
+          <main className="Main">
+            <header className="App-header">
+              <h1>Holo Now</h1>
+              <p>
+                A Tool to Watch Hololive
+              </p>
+              <p>
+                (Coming soon)
+              </p>
+            </header>
+            <Switch>
+              <Route path="/text">
+                <LiveTextList />
+              </Route>
+              <Route path="/">
+                <LiveFancyList />
+              </Route>
+            </Switch>
+          </main>
         </div>
       </RecoilRoot>
     </Router>
