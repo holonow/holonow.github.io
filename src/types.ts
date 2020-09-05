@@ -11,3 +11,5 @@ export interface LiveGroup {
   date: string
   lives: Live[]
 }
+
+export type LiverImgMap = Record<string, string>
