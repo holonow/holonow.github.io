@@ -2,6 +2,7 @@
   "name": "holo-now",
   "version": "0.1.0",
   "dependencies": {
+    "dayjs": "^1.8.35",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-router-dom": "^5.2.0",
