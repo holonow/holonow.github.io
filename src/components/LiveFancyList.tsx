@@ -1,34 +1,22 @@
 import React from 'react';
 import { useRecoilValue } from 'recoil';
 
+import { groupByDay } from '../util/groupByDay';
 import { incomingLives } from '../store/lives';
+import DayLiveList from './DayLiveList';
 
 function LiveFancyList() {
   const lives = useRecoilValue(incomingLives);
+  const groups = groupByDay(lives);
 
-  const blocks = lives.map((live) => {
-    const {
-      link, livePreviewImage, time, streamer, guests,
-    } = live;
-    const names = [streamer, ...guests];
-    return (
-      <div key={live.link}>
-        {time.toLocaleTimeString()}
-        <br />
-        {names.join(' ')}
-        <br />
-        <a href={link}>
-          <img alt="video-preview" src={livePreviewImage} />
-        </a>
-        <br />
-      </div>
-    );
-  });
+  const groupNodes = groups.map((group) => (
+    <DayLiveList key={group.date} dayGroup={group} />
+  ));
 
   return (
-    <>
-      {blocks}
-    </>
+    <div className="Lives">
+      {groupNodes}
+    </div>
   );
 }
 
