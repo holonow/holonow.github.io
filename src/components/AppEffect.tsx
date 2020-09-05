@@ -1,5 +1,5 @@
 import { useEffect, useCallback } from 'react';
-import { useRecoilState } from 'recoil';
+import { useSetRecoilState } from 'recoil';
 
 import livesAtom from '../store/lives';
 import liverImages from '../store/liverImages';
@@ -29,37 +29,44 @@ async function getImgMap(): Promise<LiverImgMap> {
 }
 
 function useUpdateLives() {
-  const [liveState, setLiveState] = useRecoilState(livesAtom);
+  const setLiveState = useSetRecoilState(livesAtom);
 
-  const initLives = useCallback(async () => {
-    const { updatedAt } = liveState;
-    if (updatedAt) { return; }
-
+  const updateLives = useCallback(async () => {
     const lives = await getLives();
     setLiveState(() => ({
       lives,
       updatedAt: new Date(),
     }));
-  }, [liveState, setLiveState]);
+  }, [setLiveState]);
 
-  useEffect(() => { initLives(); }, [initLives]);
+  useEffect(() => {
+    updateLives();
+    const interval = setInterval(updateLives, 1000 * 60 * 5);
+    return () => {
+      clearInterval(interval);
+    };
+  }, [updateLives]);
 }
 
 function useUpdateLiverImages() {
-  const [liverImagesState, setLiverImages] = useRecoilState(liverImages);
+  const setLiverImages = useSetRecoilState(liverImages);
 
-  const initImgMap = useCallback(async () => {
-    const { updatedAt } = liverImagesState;
-    if (updatedAt) { return; }
-
+  const updateImgMap = useCallback(async () => {
     const map = await getImgMap();
     setLiverImages(() => ({
       liverImageMap: map,
       updatedAt: new Date(),
     }));
-  }, [liverImagesState, setLiverImages]);
+  }, [setLiverImages]);
 
-  useEffect(() => { initImgMap(); }, [initImgMap]);
+  useEffect(() => {
+    updateImgMap();
+    const interval = setInterval(updateImgMap, 1000 * 60 * 5);
+
+    return () => {
+      clearInterval(interval);
+    };
+  }, [updateImgMap]);
 }
 
 function AppEffect() {
