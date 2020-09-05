@@ -1,4 +1,5 @@
 import React from 'react';
+import dayjs from 'dayjs';
 
 import { Live } from '../types';
 
@@ -12,7 +13,7 @@ function LiveText(props: Props) {
     time, streamer, guests, link,
   } = live;
 
-  const timeStr = time.toLocaleString();
+  const timeStr = dayjs(time).format('HH:mm');
   const names = [streamer, ...guests];
 
   return (
