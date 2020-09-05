@@ -8,6 +8,7 @@ import {
 import styled from '@emotion/styled';
 
 import AppEffect from './components/AppEffect';
+import GlobalStyle from './components/GlobalStyle';
 import LiveTextList from './components/LiveTextList';
 import LiveFancyList from './components/LiveFancyList';
 import NavBar from './components/NavBar';
@@ -20,6 +21,7 @@ const Main = styled.main`
 function App() {
   return (
     <Router>
+      <GlobalStyle />
       <RecoilRoot>
         <AppEffect />
         <div className="App">
