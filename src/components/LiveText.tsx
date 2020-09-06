@@ -1,7 +1,12 @@
 import React from 'react';
 import dayjs from 'dayjs';
+import styled from '@emotion/styled';
 
 import { Live } from '../types';
+
+const LiveBlock = styled.div`
+  margin-bottom: .5rem;
+`;
 
 interface Props {
   live: Live
@@ -19,13 +24,13 @@ function LiveText(props: Props) {
   const names = [streamer, ...guests];
 
   return (
-    <div className="LiveText">
+    <LiveBlock className="LiveText">
       {timeStr}
       <br />
       {names.join(' ')}
       <br />
       <a href={link}>{link}</a>
-    </div>
+    </LiveBlock>
   );
 }
 
