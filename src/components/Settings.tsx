@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled';
+import produce from 'immer';
 import { useRecoilState } from 'recoil';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
@@ -52,9 +53,8 @@ function Settings() {
   const close = () => setShow(false);
   const handleTimeLabelClick: React.ChangeEventHandler<HTMLInputElement> = (e) => {
     const { value } = e.target;
-    setFilter((state) => ({
-      ...state,
-      startFrom: (value as 'today'|'default'),
+    setFilter(produce((draft) => {
+      draft.startFrom = value as 'today'|'default';
     }));
   };
 
