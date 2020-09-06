@@ -14,7 +14,7 @@ interface ImageProps {
 
 const Image = styled.img`
   width: 100%;
-  border: ${(props: ImageProps) => (props.streaming ? 'red' : 'lightgray')} solid 2px;
+  border: ${(props: ImageProps) => (props.streaming ? 'red' : '#444')} solid 2px;
 `;
 
 const Thumbnail = styled.a`
@@ -23,16 +23,15 @@ const Thumbnail = styled.a`
 `;
 
 const Card = styled.div`
-  color: #444;
 `;
 
 const Box = styled.div`
-  width: clamp(176px, 46vw, 250px);
-  padding: .125rem;
+  width: clamp(158px, 49vw, 250px);
+  padding: clamp(.125rem, .53vw, .25rem);
+  padding-bottom: clamp(.375rem, 1.5vw, .5rem);
 `;
 
 const Time = styled.time`
-  color: grey;
   font-weight: bold;
 `;
 

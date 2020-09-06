@@ -1,9 +1,14 @@
 import React from 'react';
 import { useRecoilValue } from 'recoil';
+import styled from '@emotion/styled';
 
 import { incomingLives } from '../store/lives';
 import { groupByDay } from '../util/groupByDay';
 import LiveText from './LiveText';
+
+const ListContainer = styled.div`
+  padding: 0 clamp(.25rem, 2vw, 1rem);
+`;
 
 function LiveTextList() {
   const allLives = useRecoilValue(incomingLives);
@@ -15,17 +20,17 @@ function LiveTextList() {
     ));
 
     return (
-      <div key={date}>
+      <section key={date}>
         <h2>{date}</h2>
         {liveNodes}
-      </div>
+      </section>
     );
   });
 
   return (
-    <div className="LiveList">
+    <ListContainer className="LiveList">
       {groupNodes}
-    </div>
+    </ListContainer>
   );
 }
 

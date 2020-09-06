@@ -5,18 +5,12 @@ import {
   Switch,
   Route,
 } from 'react-router-dom';
-import styled from '@emotion/styled';
 
 import AppEffect from './components/AppEffect';
 import GlobalStyle from './components/GlobalStyle';
 import LiveTextList from './components/LiveTextList';
 import LiveFancyList from './components/LiveFancyList';
 import NavBar from './components/NavBar';
-
-const Main = styled.main`
-  padding-left: clamp(.5rem, 2vw, 1rem);
-  padding-right: clamp(.5rem, 2vw, 1rem);
-`;
 
 function App() {
   return (
@@ -26,7 +20,7 @@ function App() {
         <AppEffect />
         <div className="App">
           <NavBar />
-          <Main>
+          <main>
             <Switch>
               <Route path="/text">
                 <LiveTextList />
@@ -35,7 +29,7 @@ function App() {
                 <LiveFancyList />
               </Route>
             </Switch>
-          </Main>
+          </main>
         </div>
       </RecoilRoot>
     </Router>

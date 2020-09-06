@@ -10,8 +10,10 @@ interface Props {
 function LiveText(props: Props) {
   const { live } = props;
   const {
-    time, streamer, guests, link,
+    time, streamer, guests, videoId,
   } = live;
+
+  const link = `https://youtu.be/${videoId}`;
 
   const timeStr = dayjs(time).format('HH:mm');
   const names = [streamer, ...guests];

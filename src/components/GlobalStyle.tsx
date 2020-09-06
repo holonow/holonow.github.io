@@ -4,11 +4,21 @@ import emotionNormalize from 'emotion-normalize';
 
 const styles = css`
   ${emotionNormalize}
+
   html {
-  box-sizing: border-box;
+    box-sizing: border-box;
   }
   *, *:before, *:after {
     box-sizing: inherit;
+  }
+
+  body {
+    color: #EEE;
+    background-color: #121212;
+  }
+
+  a {
+    color: lightskyblue;
   }
 `;
 

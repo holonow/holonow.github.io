@@ -16,7 +16,7 @@ const Time = styled.time`
 `;
 
 const Section = styled.section`
-  border-bottom: solid 1px lightgray;
+  border-bottom: solid 1px #444;
   margin-top: .5rem;
   padding-bottom: 1rem;
 `;
