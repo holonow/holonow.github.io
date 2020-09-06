@@ -1,8 +1,10 @@
 import React from 'react';
 import dayjs from 'dayjs';
 import styled from '@emotion/styled';
+import { useRecoilValue } from 'recoil';
 
 import { Live } from '../types';
+import { showTitleState } from '../store/ui';
 
 const LiveBlock = styled.div`
   margin-bottom: .5rem;
@@ -16,8 +18,9 @@ interface Props {
 function LiveText(props: Props) {
   const { live } = props;
   const {
-    time, streamer, guests, videoId,
+    time, streamer, guests, videoId, title,
   } = live;
+  const showTitle = useRecoilValue(showTitleState) && Boolean(title);
 
   const link = `https://youtu.be/${videoId}`;
 
@@ -29,6 +32,8 @@ function LiveText(props: Props) {
       <time>{timeStr}</time>
       <br />
       {names.join('、')}
+      {showTitle && <br />}
+      {showTitle && title}
       <br />
       <a href={link}>{link}</a>
     </LiveBlock>

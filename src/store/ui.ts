@@ -1,9 +1,13 @@
 import { atom } from 'recoil';
 
-type ShowSettingsState = boolean
-
-const defaultState: ShowSettingsState = false;
+const defaultShowSettingState = false;
 export const showSettingsState = atom({
   key: 'ui/showSettings',
-  default: defaultState,
+  default: defaultShowSettingState,
+});
+
+const defaultShowTitleState = true;
+export const showTitleState = atom({
+  key: 'ui/showLiveTitle',
+  default: defaultShowTitleState,
 });

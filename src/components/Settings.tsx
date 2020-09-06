@@ -4,8 +4,10 @@ import { useRecoilState } from 'recoil';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
-import { showSettingsState } from '../store/ui';
+import { showSettingsState, showTitleState } from '../store/ui';
 import { livesFilter } from '../store/lives';
+
+import Radio from './Radio';
 
 interface ModalProps {
   open: boolean
@@ -46,7 +48,11 @@ const ContentDiv = styled.div`
   padding-top: 0;
 `;
 
-const LabelGroup = styled.div`
+const Fieldset = styled.fieldset`
+  border: none;
+`;
+
+const RadioSet = styled(Fieldset)`
   input {
     margin-right: .25rem;
     margin-left: 1rem;
@@ -56,6 +62,7 @@ const LabelGroup = styled.div`
 function Settings() {
   const [show, setShow] = useRecoilState(showSettingsState);
   const [filter, setFilter] = useRecoilState(livesFilter);
+  const [showTitle, setShowTitle] = useRecoilState(showTitleState);
 
   const close = () => setShow(false);
   const handleTimeLabelClick: React.ChangeEventHandler<HTMLInputElement> = (e) => {
@@ -74,27 +81,30 @@ function Settings() {
         </CloseButtonDiv>
         <ContentDiv>
           <h3>Filter</h3>
-          <LabelGroup>
+          <RadioSet>
             Time
+            <Radio
+              label="default"
+              checked={filter.startFrom === 'default'}
+              onChange={handleTimeLabelClick}
+            />
+            <Radio
+              label="today"
+              checked={filter.startFrom === 'today'}
+              onChange={handleTimeLabelClick}
+            />
+          </RadioSet>
+          <h3>Display</h3>
+          <Fieldset>
             <label>
               <input
-                type="radio"
-                value="default"
-                checked={filter.startFrom === 'default'}
-                onChange={handleTimeLabelClick}
+                type="checkbox"
+                checked={showTitle}
+                onChange={() => { setShowTitle((x) => !x); }}
               />
-              default
+              Video Title
             </label>
-            <label>
-              <input
-                type="radio"
-                value="today"
-                checked={filter.startFrom === 'today'}
-                onChange={handleTimeLabelClick}
-              />
-              today
-            </label>
-          </LabelGroup>
+          </Fieldset>
         </ContentDiv>
       </SettingsDiv>
     </Modal>
