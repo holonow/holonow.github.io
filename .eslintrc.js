@@ -37,6 +37,7 @@ module.exports = {
    "import/prefer-default-export": "off",
    "react/jsx-filename-extension": [2, { "extensions": [".tsx", ".jsx"] }],
    "@typescript-eslint/explicit-module-boundary-types": "off",
+   "jsx-a11y/label-has-associated-control": "off",
   },
   settings: {
     'import/resolver': {

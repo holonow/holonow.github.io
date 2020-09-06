@@ -5,19 +5,23 @@ import styled from '@emotion/styled';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faQuestionCircle } from '@fortawesome/free-regular-svg-icons';
 
+import OpenSettingButton from './OpenSettingButton';
+
 const Nav = styled.nav`
   padding-left: clamp(.5rem, 2vw, 1rem);
   padding-right: clamp(.5rem, 2vw, 1rem);
   background-color: #333;
 
-  a {
+  a, button {
     display: block;
     padding: 5px;
     color: white;
     text-decoration: none;
+    border: none;
+    background-color: rgba(0, 0, 0, 0);
   }
 
-  a:hover {
+  a:hover, button:hover {
     background-color: black;
   }
 `;
@@ -67,6 +71,9 @@ function NavBar() {
           <Link to="/about">
             <FontAwesomeIcon icon={faQuestionCircle} />
           </Link>
+        </li>
+        <li>
+          <OpenSettingButton />
         </li>
       </RightUl>
     </Nav>

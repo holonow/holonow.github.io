@@ -12,6 +12,7 @@ import LiveTextList from './components/LiveTextList';
 import LiveFancyList from './components/LiveFancyList';
 import NavBar from './components/NavBar';
 import About from './components/About';
+import Settings from './components/Settings';
 
 function App() {
   return (
@@ -33,6 +34,7 @@ function App() {
                 <LiveFancyList />
               </Route>
             </Switch>
+            <Settings />
           </main>
         </div>
       </RecoilRoot>

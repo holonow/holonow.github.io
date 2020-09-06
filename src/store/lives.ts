@@ -11,21 +11,57 @@ const defaultState: LiveState = {
   lives: [],
 };
 
-const lives = atom({
+const livesAtom = atom({
   key: 'lives',
   default: defaultState,
 });
 
-export const incomingLives = selector({
-  key: 'incomingLives',
-  get: ({ get }) => {
-    const state = get(lives);
+type StartFrom = 'default' | 'today'
+interface FilterState {
+  startFrom: StartFrom
+  vtubers: string[]
+}
 
-    const aHourBefore = Date.now() - 3600 * 1000;
-    return state.lives.filter((live) => (
-      live.streaming || live.time.valueOf() > aHourBefore
+const defaultFilterState: FilterState = {
+  startFrom: 'default',
+  vtubers: [],
+};
+
+export const livesFilter = atom({
+  key: 'lives/filter',
+  default: defaultFilterState,
+});
+
+function filterByTime(lives: Live[], filter: FilterState) {
+  const { startFrom } = filter;
+
+  if (startFrom === 'today') {
+    const today = new Date().getDate();
+
+    return lives.filter((live) => (
+      live.time.getDate() === today
     ));
+  }
+
+  // default filter
+  const aHourBefore = Date.now() - 3600 * 1000;
+  return lives.filter((live) => (
+    live.streaming || live.time.valueOf() > aHourBefore
+  ));
+}
+
+function filterLives(lives: Live[], filter: FilterState): Live[] {
+  return filterByTime(lives, filter);
+}
+
+export const incomingLives = selector({
+  key: 'lives/incomingLives',
+  get: ({ get }) => {
+    const state = get(livesAtom);
+    const filter = get(livesFilter);
+
+    return filterLives(state.lives, filter);
   },
 });
 
-export default lives;
+export default livesAtom;
