@@ -25,7 +25,7 @@ function App() {
               <Route path="/text">
                 <LiveTextList />
               </Route>
-              <Route path="/">
+              <Route exact path="/">
                 <LiveFancyList />
               </Route>
             </Switch>
