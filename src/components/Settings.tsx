@@ -10,6 +10,7 @@ import { livesFilter } from '../store/lives';
 
 import Modal from './Modal';
 import Radio from './Radio';
+import VtuberSelector from './VtuberSelector';
 
 const CloseButtonDiv = styled.div`
   display: flex;
@@ -39,6 +40,8 @@ const Fieldset = styled.fieldset`
 `;
 
 const RadioSet = styled(Fieldset)`
+  padding-left: 0;
+  margin-left: 0;
   input {
     margin-right: .25rem;
     margin-left: 1rem;
@@ -79,6 +82,7 @@ function Settings() {
               onChange={handleTimeLabelClick}
             />
           </RadioSet>
+          <VtuberSelector />
           <h3>Display</h3>
           <Fieldset>
             <label>
