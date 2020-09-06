@@ -11,6 +11,7 @@ import GlobalStyle from './components/GlobalStyle';
 import LiveTextList from './components/LiveTextList';
 import LiveFancyList from './components/LiveFancyList';
 import NavBar from './components/NavBar';
+import About from './components/About';
 
 function App() {
   return (
@@ -24,6 +25,9 @@ function App() {
             <Switch>
               <Route path="/text">
                 <LiveTextList />
+              </Route>
+              <Route path="/about">
+                <About />
               </Route>
               <Route exact path="/">
                 <LiveFancyList />

@@ -18,6 +18,10 @@ const styles = css`
   }
 
   a {
+    color: #EEE;
+  }
+
+  a:hover {
     color: lightskyblue;
   }
 `;

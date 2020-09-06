@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import styled from '@emotion/styled';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faGithub } from '@fortawesome/free-brands-svg-icons';
+import { faQuestionCircle } from '@fortawesome/free-regular-svg-icons';
 
 const Nav = styled.nav`
   padding-left: clamp(.5rem, 2vw, 1rem);
@@ -41,13 +41,6 @@ const RightUl = styled(LeftUl)`
   }
 `;
 
-const GitHubLink = () => (
-  // eslint-disable-next-line react/jsx-no-target-blank
-  <a target="_blank" href="https://github.com/holonow/holonow.github.io">
-    <FontAwesomeIcon icon={faGithub} />
-  </a>
-);
-
 const JsonLink = () => (
   // eslint-disable-next-line react/jsx-no-target-blank
   <a target="_blank" href="https://holonow.github.io/holo-data/schedule.json">
@@ -71,7 +64,9 @@ function NavBar() {
       </LeftUl>
       <RightUl>
         <li>
-          <GitHubLink />
+          <Link to="/about">
+            <FontAwesomeIcon icon={faQuestionCircle} />
+          </Link>
         </li>
       </RightUl>
     </Nav>
