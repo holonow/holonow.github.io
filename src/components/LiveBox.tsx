@@ -31,26 +31,32 @@ const Box = styled.div`
   padding-bottom: clamp(.375rem, 1.5vw, .5rem);
 `;
 
-const Time = styled.time`
-  font-weight: bold;
+const TitleBox = styled.div`
+  height: 2.3rem;
+  overflow: hidden;
+`;
+const NameBox = styled.div`
+  color: var(--main-text-color);
 `;
 
 function LiveBox({ live }: Props) {
   const {
-    link, livePreviewImage, time, streamer, guests, streaming,
+    link, livePreviewImage, time, streamer, guests, streaming, title,
   } = live;
   const names = [streamer, ...guests];
+  const timeStr = dayjs(time).format('HH:mm');
 
   return (
     <Box>
       <Card>
-        <Time>
-          {dayjs(time).format('HH:mm')}
-        </Time>
+        <strong><time>{timeStr}</time></strong>
         <Thumbnail href={link}>
           <Image alt="video-preview" src={livePreviewImage} streaming={streaming} />
         </Thumbnail>
-        {names.join(' ')}
+        <NameBox>{names.join('、')}</NameBox>
+        <TitleBox>
+          {title}
+        </TitleBox>
       </Card>
     </Box>
   );

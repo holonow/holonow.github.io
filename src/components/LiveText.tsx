@@ -6,6 +6,7 @@ import { Live } from '../types';
 
 const LiveBlock = styled.div`
   margin-bottom: .5rem;
+  color: var(--main-text-color);
 `;
 
 interface Props {
@@ -25,9 +26,9 @@ function LiveText(props: Props) {
 
   return (
     <LiveBlock className="LiveText">
-      {timeStr}
+      <time>{timeStr}</time>
       <br />
-      {names.join(' ')}
+      {names.join('、')}
       <br />
       <a href={link}>{link}</a>
     </LiveBlock>

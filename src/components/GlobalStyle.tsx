@@ -5,6 +5,12 @@ import emotionNormalize from 'emotion-normalize';
 const styles = css`
   ${emotionNormalize}
 
+  :root {
+    --bg-color: #181818;
+    --main-text-color: white;
+    --second-text-color: #AAA;
+  }
+
   html {
     box-sizing: border-box;
   }
@@ -13,16 +19,20 @@ const styles = css`
   }
 
   body {
-    color: #EEE;
-    background-color: #121212;
+    color: var(--second-text-color);
+    background-color: #181818;
   }
 
   a {
-    color: #EEE;
+    color: var(--second-text-color);
   }
 
   a:hover {
     color: lightskyblue;
+  }
+
+  h1, h2, h3, h4, h5, h6, strong {
+    color: var(--main-text-color);
   }
 `;
 

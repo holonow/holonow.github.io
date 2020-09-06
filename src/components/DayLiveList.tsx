@@ -8,11 +8,12 @@ interface Props {
   dayGroup: LiveGroup
 }
 
-const Time = styled.time`
-  display: block;
-  font-weight: bold;
+const TimeH = styled.h2`
   padding: .5rem;
+  margin: 0;
   text-align: center;
+  font-size: 1.2rem;
+  font-weight: bold;
 `;
 
 const Section = styled.section`
@@ -36,7 +37,7 @@ function DayLiveList({ dayGroup }: Props) {
 
   return (
     <Section>
-      <Time>{date}</Time>
+      <TimeH><time>{date}</time></TimeH>
       <LiveContainer>
         {boxes}
       </LiveContainer>
