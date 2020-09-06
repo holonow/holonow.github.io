@@ -1,6 +1,6 @@
 import { atom } from 'recoil';
 
-const defaultShowSettingState = true;
+const defaultShowSettingState = false;
 export const showSettingsState = atom({
   key: 'ui/showSettings',
   default: defaultShowSettingState,
