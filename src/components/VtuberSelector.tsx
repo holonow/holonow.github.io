@@ -33,11 +33,13 @@ const GroupButton = styled.button`
   background-color: black;
   border: none;
   color: inherit;
-  height: 1.2rem;
+  height: calc(1.2rem + 2px);
+  width: calc(3rem + 2px);
   flex-shrink: 0;
 
   :hover {
     background-color: rgba(0,0,0,0);
+    border: solid black 1px;
   }
 `;
 
