@@ -3,12 +3,18 @@ import styled from '@emotion/styled';
 
 import { LiveGroup } from '../types';
 import LiveBox from './LiveBox';
+import PageReloadButton from './PageReloadButton';
 
 interface Props {
   dayGroup: LiveGroup
 }
 
-const TimeH = styled.h2`
+const DateDiv = styled.div`
+  text-align: center;
+`;
+
+const TimeH2 = styled.h2`
+  display: inline-block;
   padding: .5rem;
   margin: 0;
   text-align: center;
@@ -37,7 +43,12 @@ function DayLiveList({ dayGroup }: Props) {
 
   return (
     <Section>
-      <TimeH><time>{date}</time></TimeH>
+      <DateDiv>
+        <TimeH2>
+          <time>{date}</time>
+        </TimeH2>
+        <PageReloadButton />
+      </DateDiv>
       <LiveContainer>
         {boxes}
       </LiveContainer>
