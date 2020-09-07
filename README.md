@@ -1,7 +1,8 @@
 # Holo now
+![deploy](https://github.com/holonow/holonow.github.io/workflows/deploy/badge.svg)
 [![CodeFactor](https://www.codefactor.io/repository/github/holonow/holonow.github.io/badge)](https://www.codefactor.io/repository/github/holonow/holonow.github.io)
 
-Unofficial Hololive schedule viewer.
+Unofficial [Hololive](https://www.hololive.tv/) schedule viewer.
 
 Host at: [https://holonow.github.io](https://holonow.github.io)
 
@@ -9,6 +10,6 @@ Host at: [https://holonow.github.io](https://holonow.github.io)
 
 - [x] Mobile web-app
 - [x] Pure Text format for copy/paste
-- [ ] Filters
+- [x] Filters
 - [x] JSON
 - [ ] RSS
