@@ -36,6 +36,7 @@ const GroupButton = styled.button`
   height: calc(1.2rem + 2px);
   width: calc(3rem + 2px);
   flex-shrink: 0;
+  overflow: hidden;
 
   :hover {
     background-color: rgba(0,0,0,0);
@@ -78,13 +79,15 @@ function VtuberSelector() {
         setFilter(produce((draft: FilterState) => {
           const index = draft.vtubers.indexOf(member);
           if (index >= 0) {
-            draft.vtubers.splice(index, 1);
+            draft.vtubers = draft.vtubers.filter((x) => x !== member);
           } else {
             draft.vtubers.push(member);
           }
+
           draft.allVtubers = false;
         }));
       };
+
       return (
         <Icon
           key={member}
@@ -96,9 +99,26 @@ function VtuberSelector() {
       );
     });
 
+    const handleGroupClick = () => {
+      setFilter(produce((draft: FilterState) => {
+        const currentVtubers = new Set(draft.vtubers);
+        if (members.every((m) => currentVtubers.has(m))) {
+          draft.vtubers = draft.vtubers.filter((v) => !members.includes(v));
+        } else {
+          members
+            .filter((m) => !currentVtubers.has(m))
+            .forEach((m) => { draft.vtubers.push(m); });
+        }
+
+        draft.allVtubers = false;
+      }));
+    };
+
     return (
       <Row key={name}>
-        <GroupButton type="button">{name}</GroupButton>
+        <GroupButton type="button" onClick={handleGroupClick}>
+          {name}
+        </GroupButton>
         {icons}
       </Row>
     );
