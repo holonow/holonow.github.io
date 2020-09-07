@@ -105,7 +105,7 @@ function VtuberSelector() {
   return (
     <div>
       <Row>
-        全表示 &nbsp;
+        全表示
         <Switch checked={allVtubers} onChange={onAllVtubersChange} />
       </Row>
       {groupNodes}

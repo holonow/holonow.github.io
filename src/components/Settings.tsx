@@ -9,7 +9,7 @@ import { showSettingsState, showTitleState } from '../store/ui';
 import { livesFilter } from '../store/lives';
 
 import Modal from './Modal';
-import Radio from './Radio';
+import Switch from './Switch';
 import VtuberSelector from './VtuberSelector';
 
 const CloseButtonDiv = styled.div`
@@ -37,15 +37,8 @@ const ContentDiv = styled.div`
 
 const Fieldset = styled.fieldset`
   border: none;
-`;
-
-const RadioSet = styled(Fieldset)`
   padding-left: 0;
   margin-left: 0;
-  input {
-    margin-right: .25rem;
-    margin-left: 1rem;
-  }
 `;
 
 function Settings() {
@@ -54,10 +47,9 @@ function Settings() {
   const [showTitle, setShowTitle] = useRecoilState(showTitleState);
 
   const close = () => setShow(false);
-  const handleTimeLabelClick: React.ChangeEventHandler<HTMLInputElement> = (e) => {
-    const { value } = e.target;
+  const handleTimeFilterChange: React.ChangeEventHandler<HTMLInputElement> = (e) => {
     setFilter(produce((draft) => {
-      draft.startFrom = value as 'today'|'default';
+      draft.startFrom = draft.startFrom === 'today' ? 'default' : 'today';
     }));
   };
 
@@ -68,31 +60,16 @@ function Settings() {
           <FontAwesomeIcon onClick={close} icon={faTimes} />
         </CloseButtonDiv>
         <ContentDiv>
-          <h3>Filter</h3>
-          <RadioSet>
-            Time
-            <Radio
-              label="default"
-              checked={filter.startFrom === 'default'}
-              onChange={handleTimeLabelClick}
-            />
-            <Radio
-              label="today"
-              checked={filter.startFrom === 'today'}
-              onChange={handleTimeLabelClick}
-            />
-          </RadioSet>
-          <VtuberSelector />
-          <h3>Display</h3>
+          <h3>フィルター</h3>
           <Fieldset>
-            <label>
-              <input
-                type="checkbox"
-                checked={showTitle}
-                onChange={() => { setShowTitle((x) => !x); }}
-              />
-              Video Title
-            </label>
+            今日のライブ
+            <Switch onChange={handleTimeFilterChange} checked={filter.startFrom === 'today'} />
+          </Fieldset>
+          <VtuberSelector />
+          <h3>設定</h3>
+          <Fieldset>
+            タイトルを表示
+            <Switch onChange={() => { setShowTitle((x) => !x); }} checked={showTitle} />
           </Fieldset>
         </ContentDiv>
       </SettingsDiv>

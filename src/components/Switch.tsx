@@ -6,6 +6,7 @@ const Label = styled.label`
   display: inline-block;
   width: 30px;
   height: 17px;
+  margin: 0 .5rem;
 
   /* Hide default HTML checkbox */
   input {
