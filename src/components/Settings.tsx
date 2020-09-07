@@ -47,7 +47,7 @@ function Settings() {
   const [showTitle, setShowTitle] = useRecoilState(showTitleState);
 
   const close = () => setShow(false);
-  const handleTimeFilterChange: React.ChangeEventHandler<HTMLInputElement> = (e) => {
+  const handleTimeFilterChange: React.ChangeEventHandler<HTMLInputElement> = () => {
     setFilter(produce((draft) => {
       draft.startFrom = draft.startFrom === 'today' ? 'default' : 'today';
     }));
