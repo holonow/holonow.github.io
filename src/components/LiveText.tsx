@@ -7,7 +7,6 @@ import { Live } from '../types';
 import { showTitleState } from '../store/ui';
 
 const LiveBlock = styled.div`
-  margin-bottom: .5rem;
   color: var(--main-text-color);
 `;
 
@@ -36,6 +35,8 @@ function LiveText(props: Props) {
       {showTitle && title}
       <br />
       <a href={link}>{link}</a>
+      <br />
+      <br />
     </LiveBlock>
   );
 }
