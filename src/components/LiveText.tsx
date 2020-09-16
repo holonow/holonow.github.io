@@ -34,7 +34,7 @@ function LiveText(props: Props) {
       {showTitle && <br />}
       {showTitle && title}
       <br />
-      <a href={link}>{link}</a>
+      <a target="_blank" rel="noopener noreferrer" href={link}>{link}</a>
       <br />
       <br />
     </LiveBlock>

@@ -50,7 +50,7 @@ function LiveBox({ live }: Props) {
     <Box>
       <Card>
         <strong><time>{timeStr}</time></strong>
-        <Thumbnail href={link}>
+        <Thumbnail rel="noopener noreferrer" target="_blank" href={link}>
           <Image alt="video-preview" src={livePreviewImage} streaming={streaming} />
         </Thumbnail>
         <NameBox>{names.join('、')}</NameBox>
