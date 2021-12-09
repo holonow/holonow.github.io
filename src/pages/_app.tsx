@@ -26,6 +26,7 @@ function App({ Component, pageProps }: AppProps) {
         <link rel="apple-touch-icon" href="/logo192.png" />
         <link rel="manifest" href="/manifest.json" />
         <link rel="preconnect" href="https://img.youtube.com" />
+        <link rel="preconnect" href="https://yt3.ggpht.com" />
         <title>Holo Now</title>
       </Head>
       <GlobalStyle />
