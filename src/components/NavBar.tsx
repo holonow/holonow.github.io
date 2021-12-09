@@ -1,6 +1,6 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import styled from '@emotion/styled';
+import Link from 'next/link';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faQuestionCircle } from '@fortawesome/free-regular-svg-icons';
@@ -57,10 +57,14 @@ function NavBar() {
     <Nav>
       <LeftUl>
         <li>
-          <Link style={{ fontWeight: 'bold' }} to="/">[Holo Now]</Link>
+          <Link href="/">
+            <a style={{ fontWeight: 'bold' }}>
+              [Holo Now]
+            </a>
+          </Link>
         </li>
         <li>
-          <Link to="/text">Text</Link>
+          <Link href="/text">Text</Link>
         </li>
         <li>
           <JsonLink />
@@ -68,8 +72,10 @@ function NavBar() {
       </LeftUl>
       <RightUl>
         <li>
-          <Link to="/about">
-            <FontAwesomeIcon icon={faQuestionCircle} />
+          <Link href="/about">
+            <a style={{ width: '1.5rem' }}>
+              <FontAwesomeIcon icon={faQuestionCircle} />
+            </a>
           </Link>
         </li>
         <li>

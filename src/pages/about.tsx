@@ -2,12 +2,14 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
 
-import TextPagesContainer from './TextPagesContainer';
+import TextPagesContainer from '../components/TextPagesContainer';
 
 const GitHubLink = () => (
   // eslint-disable-next-line react/jsx-no-target-blank
   <a target="_blank" href="https://github.com/holonow/holonow.github.io">
-    <FontAwesomeIcon icon={faGithub} />
+    <span style={{ display: 'inline-block', width: '1rem' }}>
+      <FontAwesomeIcon icon={faGithub} />
+    </span>
     {' '}
     GitHub
   </a>

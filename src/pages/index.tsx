@@ -3,7 +3,7 @@ import { useRecoilValue } from 'recoil';
 
 import { groupByDay } from '../util/groupByDay';
 import { incomingLives } from '../store/lives';
-import DayLiveList from './DayLiveList';
+import DayLiveList from '../components/DayLiveList';
 
 function LiveFancyList() {
   const lives = useRecoilValue(incomingLives);
