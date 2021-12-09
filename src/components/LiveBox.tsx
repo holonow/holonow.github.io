@@ -51,7 +51,10 @@ function LiveBox({ live }: Props) {
       <Card>
         <strong><time>{timeStr}</time></strong>
         <Thumbnail rel="noopener noreferrer" target="_blank" href={link}>
-          <Image alt="video-preview" src={livePreviewImage} streaming={streaming} />
+          <Image
+            alt="video-preview" src={livePreviewImage} streaming={streaming}
+            style={{aspectRatio: '16 / 9'}}
+          />
         </Thumbnail>
         <NameBox>{names.join('、')}</NameBox>
         <TitleBox>
