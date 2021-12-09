@@ -15,8 +15,8 @@ import VtuberSelector from './VtuberSelector';
 const CloseButtonDiv = styled.div`
   display: flex;
   flex-direction: row-reverse;
-  padding-top: .5rem;
-  padding-right: .5rem;
+  width: 2rem;
+  padding: .5rem;
 `;
 
 const SettingsDiv = styled.div`
@@ -56,7 +56,7 @@ function Settings() {
   return (
     <Modal open={show}>
       <SettingsDiv>
-        <CloseButtonDiv>
+        <CloseButtonDiv role="button" aria-label="close">
           <FontAwesomeIcon onClick={close} icon={faTimes} />
         </CloseButtonDiv>
         <ContentDiv>
