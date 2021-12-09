@@ -3,8 +3,8 @@ import { useRecoilValue } from 'recoil';
 
 import { incomingLives } from '../store/lives';
 import { groupByDay } from '../util/groupByDay';
-import LiveText from './LiveText';
-import TextPagesContainer from './TextPagesContainer';
+import LiveText from '../components/LiveText';
+import TextPagesContainer from '../components/TextPagesContainer';
 
 function LiveTextList() {
   const allLives = useRecoilValue(incomingLives);

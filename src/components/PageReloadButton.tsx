@@ -15,6 +15,7 @@ interface ButtonProps {
 const Button = styled.div`
   display: inline-block;
   cursor: pointer;
+  width: 1rem;
 
   ${(props: ButtonProps) => (props.loading ? 'animation: spin 2s linear infinite;' : '')}
   @keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }

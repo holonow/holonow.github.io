@@ -14,8 +14,8 @@ function OpenSettingsButton() {
   };
 
   return (
-    <button type="button" onClick={handleClick}>
-      <FontAwesomeIcon icon={faCog} />
+    <button type="button" style={{ width: '1.5rem' }} onClick={handleClick}>
+      <FontAwesomeIcon size="xs" icon={faCog} />
     </button>
   );
 }
