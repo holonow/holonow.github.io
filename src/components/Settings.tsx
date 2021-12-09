@@ -15,7 +15,6 @@ import VtuberSelector from './VtuberSelector';
 const CloseButtonDiv = styled.div`
   display: flex;
   flex-direction: row-reverse;
-  width: 2rem;
   padding: .5rem;
 `;
 
@@ -56,8 +55,10 @@ function Settings() {
   return (
     <Modal open={show}>
       <SettingsDiv>
-        <CloseButtonDiv role="button" aria-label="close">
-          <FontAwesomeIcon onClick={close} icon={faTimes} />
+        <CloseButtonDiv>
+          <div role="button" aria-label="close" style={{ width: '1rem' }} onClick={close}>
+            <FontAwesomeIcon icon={faTimes} />
+          </div>
         </CloseButtonDiv>
         <ContentDiv>
           <h3>フィルター</h3>
