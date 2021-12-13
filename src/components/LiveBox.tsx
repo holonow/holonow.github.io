@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled';
+import Image from 'next/image';
 import dayjs from 'dayjs';
 
 import { Live } from '../types';
@@ -12,8 +13,8 @@ interface ImageProps {
   streaming: boolean;
 }
 
-const Image = styled.img`
-  width: 100%;
+const ImageContainer = styled.div`
+  display: flex;
   border: ${(props: ImageProps) => (props.streaming ? 'red' : '#444')} solid 2px;
 `;
 
@@ -51,10 +52,16 @@ function LiveBox({ live }: Props) {
       <Card>
         <strong><time>{timeStr}</time></strong>
         <Thumbnail rel="noopener noreferrer" target="_blank" href={link}>
-          <Image
-            alt="video-preview" src={livePreviewImage} streaming={streaming}
-            style={{aspectRatio: '16 / 9'}}
-          />
+          {livePreviewImage && (
+            <ImageContainer  streaming={streaming}>
+              <Image
+                alt="video-preview" src={livePreviewImage}
+                width="320"
+                height="180"
+                quality="95"
+              />
+            </ImageContainer>
+          )}
         </Thumbnail>
         <NameBox>{names.join('、')}</NameBox>
         <TitleBox>

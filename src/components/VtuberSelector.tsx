@@ -1,8 +1,9 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import { useRecoilState, useRecoilValue } from 'recoil';
-
 import produce from 'immer';
+import Image from 'next/image';
+
 import { HOLO_GROUPS } from '../util/memberList';
 import { livesFilter, FilterState } from '../store/lives';
 import liverImagesState from '../store/liverImages';
@@ -11,18 +12,20 @@ import Switch from './Switch';
 interface ImageProps {
   selected: boolean;
 }
-const Image = styled.img`
+const IconContainer = styled.div`
   border-radius: 50%;
   width: 2.5rem;
-  border: 2px solid ;
+  height: 2.5rem;
+  border: 2px solid;
   border-color: ${(props: ImageProps) => (props.selected ? 'skyblue' : 'gray')};
   filter: ${(props: ImageProps) => (props.selected ? '' : 'grayscale(.7)')};
+  overflow: hidden;
 `;
 
 const Row = styled.div`
   display: flex;
   align-items: center;
-  img {
+  div {
     margin-left: .25rem;
   }
   margin-bottom: .5rem;
@@ -55,8 +58,14 @@ function Icon(props: IconProps) {
     name, src, selected, onClick,
   } = props;
 
+  if(!src) {
+    return null;
+  }
+
   return (
-    <Image selected={selected} alt={name} src={src} onClick={onClick} />
+    <IconContainer selected={selected} onClick={onClick} role="button">
+      <Image alt={name} src={src} width="88" height="88" layout="intrinsic" />
+    </IconContainer>
   );
 }
 
