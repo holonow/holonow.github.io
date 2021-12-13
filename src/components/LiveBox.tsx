@@ -56,8 +56,8 @@ function LiveBox({ live }: Props) {
             <ImageContainer  streaming={streaming}>
               <Image
                 alt="video-preview" src={livePreviewImage}
-                width="320"
-                height="180"
+                width="240"
+                height="135"
                 quality="95"
               />
             </ImageContainer>
