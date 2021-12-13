@@ -14,7 +14,10 @@ function OpenSettingsButton() {
   };
 
   return (
-    <button type="button" style={{ width: '1.5rem' }} onClick={handleClick}>
+    <button
+      type="button" aria-label="setting"
+      style={{ width: '1.5rem' }} onClick={handleClick}
+    >
       <FontAwesomeIcon size="xs" icon={faCog} />
     </button>
   );
