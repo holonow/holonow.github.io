@@ -7,7 +7,7 @@ import { Live } from '../types';
 import { showTitleState } from '../store/ui';
 
 const LiveBlock = styled.div`
-  color: var(--main-text-color);
+  color: white;
 `;
 
 interface Props {

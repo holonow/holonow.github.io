@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply text-zinc-400;
+    @apply bg-zinc-900;
+  }
+
+  a {
+    @apply text-zinc-400;
+  }
+  a:hover {
+    @apply text-sky-300;
+  }
+
+  h1, h2, h3, h4, h5, h6, strong {
+    @apply text-white;
+  }
+}

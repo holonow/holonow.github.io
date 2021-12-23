@@ -3,10 +3,9 @@ import React from 'react';
 import type { AppProps } from 'next/app';
 import Head from 'next/head';
 import { RecoilRoot } from 'recoil';
+import '../styles/globals.css';
 
-import '../index.css';
 import AppEffect from '../components/AppEffect';
-import GlobalStyle from '../components/GlobalStyle';
 import NavBar from '../components/NavBar';
 import Settings from '../components/Settings';
 
@@ -27,7 +26,6 @@ function App({ Component, pageProps }: AppProps) {
         <link rel="manifest" href="/manifest.json" />
         <title>Holo Now</title>
       </Head>
-      <GlobalStyle />
       <AppEffect />
       <div className="App">
         <NavBar />

@@ -37,7 +37,7 @@ const TitleBox = styled.div`
   overflow: hidden;
 `;
 const NameBox = styled.div`
-  color: var(--main-text-color);
+  color: white;
 `;
 
 function LiveBox({ live }: Props) {
