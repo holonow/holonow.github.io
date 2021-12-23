@@ -1,5 +1,4 @@
 import React from 'react';
-import styled from '@emotion/styled';
 import Image from 'next/image';
 import dayjs from 'dayjs';
 
@@ -9,37 +8,6 @@ interface Props {
   live: Live
 }
 
-interface ImageProps {
-  streaming: boolean;
-}
-
-const ImageContainer = styled.div`
-  display: flex;
-  border: ${(props: ImageProps) => (props.streaming ? 'red' : '#444')} solid 2px;
-`;
-
-const Thumbnail = styled.a`
-  display: block;
-  width: 100%;
-`;
-
-const Card = styled.div`
-`;
-
-const Box = styled.div`
-  width: clamp(158px, 49vw, 250px);
-  padding: clamp(.125rem, .53vw, .25rem);
-  padding-bottom: clamp(.375rem, 1.5vw, .5rem);
-`;
-
-const TitleBox = styled.div`
-  height: 2.3rem;
-  overflow: hidden;
-`;
-const NameBox = styled.div`
-  color: white;
-`;
-
 function LiveBox({ live }: Props) {
   const {
     link, livePreviewImage, time, streamer, guests, streaming, title,
@@ -48,27 +16,27 @@ function LiveBox({ live }: Props) {
   const timeStr = dayjs(time).format('HH:mm');
 
   return (
-    <Box>
-      <Card>
-        <strong><time>{timeStr}</time></strong>
-        <Thumbnail rel="noopener noreferrer" target="_blank" href={link}>
-          {livePreviewImage && (
-            <ImageContainer  streaming={streaming}>
-              <Image
-                alt="video-preview" src={livePreviewImage}
-                width="240"
-                height="135"
-                quality="95"
-              />
-            </ImageContainer>
-          )}
-        </Thumbnail>
-        <NameBox>{names.join('、')}</NameBox>
-        <TitleBox>
-          {title}
-        </TitleBox>
-      </Card>
-    </Box>
+    <div className="live-card">
+      <strong>
+        <time>{timeStr}</time>
+      </strong>
+      <a className="block" rel="noopener noreferrer" target="_blank" href={link}>
+        {livePreviewImage && (
+          <div className={`flex border-solid border-2 ${streaming ? 'border-red-600' : 'border-gray-600'}` }>
+            <Image
+              alt="video-preview" src={livePreviewImage}
+              width="240"
+              height="135"
+              quality="95"
+            />
+          </div>
+        )}
+      </a>
+      <div className="text-white">{names.join('、')}</div>
+      <div className="overflow-hidden line-clamp-2 font-light">
+        {title}
+      </div>
+    </div>
   );
 }
 

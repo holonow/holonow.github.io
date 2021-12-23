@@ -19,3 +19,11 @@
     @apply text-white;
   }
 }
+
+@layer components {
+  .live-card {
+    width: clamp(158px, 49vw, 250px);
+    padding: clamp(.125rem, .53vw, .25rem);
+    @apply mt-2 leading-tight;
+  }
+}
