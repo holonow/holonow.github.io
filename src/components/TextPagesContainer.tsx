@@ -1,7 +1,11 @@
-import styled from '@emotion/styled';
+import type { DetailedHTMLProps, HTMLAttributes } from 'react';
 
-const TextPagesContainer = styled.div`
-  padding: 0 clamp(.25rem, 2vw, 1rem);
-`;
+export default function TextPagesContainer({className, ...props}: DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>) {
+  return (
+    <div
+      className={(className || '') + "py-0 px-[clamp(.25rem,2vw,1rem)]"}
+      {...props}
+    />
+  )
+}
 
-export default TextPagesContainer;
