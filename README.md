@@ -1,3 +1,5 @@
+! This project is archived. Migreated to https://github.com/wabilin/holonow
+
 # Holo now
 ![deploy](https://github.com/holonow/holonow.github.io/workflows/deploy/badge.svg)
 [![CodeFactor](https://www.codefactor.io/repository/github/holonow/holonow.github.io/badge)](https://www.codefactor.io/repository/github/holonow/holonow.github.io)
