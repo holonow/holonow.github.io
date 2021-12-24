@@ -1,25 +1,11 @@
 import React, { useState } from 'react';
 import { useSetRecoilState } from 'recoil';
-import styled from '@emotion/styled';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSyncAlt } from '@fortawesome/free-solid-svg-icons';
 
 import livesAtom from '../store/lives';
 import { getLives } from '../apis';
-
-interface ButtonProps {
-  loading: boolean;
-}
-
-const Button = styled.div`
-  display: inline-block;
-  cursor: pointer;
-  width: 1rem;
-
-  ${(props: ButtonProps) => (props.loading ? 'animation: spin 2s linear infinite;' : '')}
-  @keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
-`;
 
 function PageReloadButton() {
   const [loading, setLoading] = useState(false);
@@ -41,9 +27,13 @@ function PageReloadButton() {
   };
 
   return (
-    <Button onClick={onButtonClick} loading={loading}>
+    <div
+      role="button" aria-label="reload"
+      onClick={onButtonClick}
+      className={`inline-block w-4 cursor-pointer${loading ? ' animate-spin' : ''}`}
+    >
       <FontAwesomeIcon icon={faSyncAlt} />
-    </Button>
+    </div>
   );
 }
 
