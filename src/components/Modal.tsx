@@ -1,19 +1,15 @@
-import styled from '@emotion/styled';
+import type { DetailedHTMLProps, HTMLAttributes, ReactNode } from 'react';
 
-interface ModalProps {
+export interface ModalProps extends
+  DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
   open: boolean
 }
 
-const Modal = styled.div`
-  display: ${(props: ModalProps) => (props.open ? 'block' : 'none')};
-  position: fixed;
-  z-index: 1;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: rgba(0,0,0,0.4);
-`;
-
-export default Modal;
+export default function Modal({ open, ...restProps }: ModalProps) {
+  return (
+    <div
+      className={`${open ? 'block' : 'hidden'} fixed z-10 left-0 top-0 w-full h-full overflow-auto bg-black/40`}
+      {...restProps}
+    />
+  )
+}
