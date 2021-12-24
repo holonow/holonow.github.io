@@ -1,49 +1,11 @@
 import React from 'react';
-import styled from '@emotion/styled';
 import Link from 'next/link';
+import styles from './Navbar.module.scss';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faQuestionCircle } from '@fortawesome/free-regular-svg-icons';
 
 import OpenSettingButton from './OpenSettingButton';
-
-const Nav = styled.nav`
-  padding-left: clamp(.5rem, 2vw, 1rem);
-  padding-right: clamp(.5rem, 2vw, 1rem);
-  background-color: #333;
-
-  a, button {
-    display: block;
-    padding: 5px;
-    color: white;
-    text-decoration: none;
-    border: none;
-    background-color: rgba(0, 0, 0, 0);
-  }
-
-  a:hover, button:hover {
-    background-color: black;
-  }
-`;
-
-const LeftUl = styled.ul`
-  float: left;
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-
-  li {
-    float: left;
-  }
-`;
-
-const RightUl = styled(LeftUl)`
-  float: none;
-  li {
-    float: right;
-  }
-`;
 
 const JsonLink = () => (
   // eslint-disable-next-line react/jsx-no-target-blank
@@ -54,8 +16,8 @@ const JsonLink = () => (
 
 function NavBar() {
   return (
-    <Nav>
-      <LeftUl>
+    <nav className={styles['nav-bar']}>
+      <ul className="flex gap-2">
         <li>
           <Link href="/">
             <a style={{ fontWeight: 'bold' }}>
@@ -69,11 +31,11 @@ function NavBar() {
         <li>
           <JsonLink />
         </li>
-      </LeftUl>
-      <RightUl>
+      </ul>
+      <ul className="flex gap-2 items-center">
         <li>
           <Link href="/about">
-            <a style={{ width: '1.5rem' }}>
+            <a>
               <FontAwesomeIcon icon={faQuestionCircle} />
             </a>
           </Link>
@@ -81,8 +43,8 @@ function NavBar() {
         <li>
           <OpenSettingButton />
         </li>
-      </RightUl>
-    </Nav>
+      </ul>
+    </nav>
   );
 }
 

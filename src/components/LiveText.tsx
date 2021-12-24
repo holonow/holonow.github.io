@@ -1,14 +1,9 @@
 import React from 'react';
 import dayjs from 'dayjs';
-import styled from '@emotion/styled';
 import { useRecoilValue } from 'recoil';
 
 import { Live } from '../types';
 import { showTitleState } from '../store/ui';
-
-const LiveBlock = styled.div`
-  color: white;
-`;
 
 interface Props {
   live: Live
@@ -27,7 +22,7 @@ function LiveText(props: Props) {
   const names = [streamer, ...guests];
 
   return (
-    <LiveBlock className="LiveText">
+    <div className="LiveText text-white">
       <time>{timeStr}</time>
       <br />
       {names.join('、')}
@@ -37,7 +32,7 @@ function LiveText(props: Props) {
       <a target="_blank" rel="noopener noreferrer" href={link}>{link}</a>
       <br />
       <br />
-    </LiveBlock>
+    </div>
   );
 }
 

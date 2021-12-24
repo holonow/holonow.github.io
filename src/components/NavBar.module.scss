@@ -1,0 +1,18 @@
+.nav-bar {
+  display: flex;
+  justify-content: space-between;
+  padding-left: .5rem;
+  padding-right: .5rem;
+  background-color: #333;
+
+  a, button {
+    display: block;
+    color: white;
+    text-decoration: none;
+    border: none;
+  }
+
+  a:hover, button:hover {
+    background-color: black;
+  }
+}

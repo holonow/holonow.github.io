@@ -1,5 +1,4 @@
 import React from 'react';
-import styled from '@emotion/styled';
 
 import { LiveGroup } from '../types';
 import LiveBox from './LiveBox';
@@ -9,31 +8,6 @@ interface Props {
   dayGroup: LiveGroup
 }
 
-const DateDiv = styled.div`
-  text-align: center;
-`;
-
-const TimeH2 = styled.h2`
-  display: inline-block;
-  padding: .5rem;
-  margin: 0;
-  text-align: center;
-  font-size: 1.2rem;
-  font-weight: bold;
-`;
-
-const Section = styled.section`
-  border-bottom: solid 1px #444;
-  margin-top: .5rem;
-  padding-bottom: 1rem;
-`;
-
-const LiveContainer = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-`;
-
 function DayLiveList({ dayGroup }: Props) {
   const { lives, date } = dayGroup;
 
@@ -42,17 +16,17 @@ function DayLiveList({ dayGroup }: Props) {
   ));
 
   return (
-    <Section>
-      <DateDiv>
-        <TimeH2>
+    <section className="mt-2 pb-4 border-b border-solid border-[#444]">
+      <div className="w-full flex justify-center items-center">
+        <h2 className="p-2 text-lg font-bold font leading-tight">
           <time>{date}</time>
-        </TimeH2>
+        </h2>
         <PageReloadButton />
-      </DateDiv>
-      <LiveContainer>
+      </div>
+      <div className="flex flex-wrap justify-center">
         {boxes}
-      </LiveContainer>
-    </Section>
+      </div>
+    </section>
   );
 }
 
