@@ -18,7 +18,7 @@ function DayLiveList({ dayGroup }: Props) {
   return (
     <section className="mt-2 pb-4 border-b border-solid border-[#444]">
       <div className="w-full flex justify-center items-center">
-        <h2 className="p-2 text-lg font-bold font leading-tight">
+        <h2 className="px-2 py-1 text-lg font-bold font leading-tight">
           <time>{date}</time>
         </h2>
         <PageReloadButton />

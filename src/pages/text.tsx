@@ -17,7 +17,7 @@ function LiveTextList() {
 
     return (
       <section key={date}>
-        <h2>{date}</h2>
+        <h2 className="text-xl font-bold my-2">{date}</h2>
         {liveNodes}
       </section>
     );

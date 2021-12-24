@@ -29,7 +29,14 @@ function LiveText(props: Props) {
       {showTitle && <br />}
       {showTitle && title}
       <br />
-      <a target="_blank" rel="noopener noreferrer" href={link}>{link}</a>
+      <a
+        target="_blank"
+        rel="noopener noreferrer"
+        href={link}
+        className="underline"
+      >
+        {link}
+      </a>
       <br />
       <br />
     </div>
