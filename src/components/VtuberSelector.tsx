@@ -1,5 +1,4 @@
 import React from 'react';
-import styled from '@emotion/styled';
 import { useRecoilState, useRecoilValue } from 'recoil';
 import produce from 'immer';
 import Image from 'next/image';
@@ -8,44 +7,9 @@ import { HOLO_GROUPS } from '../util/memberList';
 import { livesFilter, FilterState } from '../store/lives';
 import liverImagesState from '../store/liverImages';
 import Switch from './Switch';
+import { cx } from '../util/cx';
 
-interface ImageProps {
-  selected: boolean;
-}
-const IconContainer = styled.div`
-  border-radius: 50%;
-  width: 2.5rem;
-  height: 2.5rem;
-  border: 2px solid;
-  border-color: ${(props: ImageProps) => (props.selected ? 'skyblue' : 'gray')};
-  filter: ${(props: ImageProps) => (props.selected ? '' : 'grayscale(.7)')};
-  overflow: hidden;
-`;
-
-const Row = styled.div`
-  display: flex;
-  align-items: center;
-  div {
-    margin-left: .25rem;
-  }
-  margin-bottom: .5rem;
-`;
-
-const GroupButton = styled.button`
-  padding: 0;
-  background-color: black;
-  border: none;
-  color: inherit;
-  height: calc(1.2rem + 2px);
-  width: calc(3rem + 2px);
-  flex-shrink: 0;
-  overflow: hidden;
-
-  :hover {
-    background-color: rgba(0,0,0,0);
-    border: solid black 1px;
-  }
-`;
+const rowClass = 'flex items-center gap-1 mb-2';
 
 interface IconProps {
   name: string;
@@ -63,9 +27,16 @@ function Icon(props: IconProps) {
   }
 
   return (
-    <IconContainer selected={selected} onClick={onClick} role="button">
+    <div
+      onClick={onClick} role="button"
+      className={cx(
+        'w-10 h-10 border-2 border-solid overflow-hidden rounded-full',
+        selected ? "border-sky-400" : "border-zinc-500",
+        !selected && 'grayscale-[0.7]'
+      )}
+    >
       <Image alt={name} src={src} width="88" height="88" layout="intrinsic" />
-    </IconContainer>
+    </div>
   );
 }
 
@@ -124,21 +95,30 @@ function VtuberSelector() {
     };
 
     return (
-      <Row key={name}>
-        <GroupButton type="button" onClick={handleGroupClick}>
+      <div className={rowClass} key={name}>
+        <button
+          type="button"
+          onClick={handleGroupClick}
+          className={cx(
+            'p-px bg-black border-none text-inherit leading-tight',
+            'shrink-0 overflow-hidden',
+            'border-black border',
+            'hover:bg-transparent hover:border-solid hover:p-0'
+          )}
+        >
           {name}
-        </GroupButton>
+        </button>
         {icons}
-      </Row>
+      </div>
     );
   });
 
   return (
     <div>
-      <Row>
+      <div className={rowClass}>
         全表示
         <Switch checked={allVtubers} onChange={onAllVtubersChange} />
-      </Row>
+      </div>
       {groupNodes}
     </div>
   );
