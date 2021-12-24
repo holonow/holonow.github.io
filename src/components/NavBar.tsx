@@ -35,7 +35,7 @@ function NavBar() {
       <ul className="flex gap-2 items-center">
         <li>
           <Link href="/about">
-            <a>
+            <a className="w-4">
               <FontAwesomeIcon icon={faQuestionCircle} />
             </a>
           </Link>

@@ -14,7 +14,7 @@ function OpenSettingsButton() {
   };
 
   return (
-    <button type="button" aria-label="setting" onClick={handleClick}>
+    <button type="button" aria-label="setting" onClick={handleClick} className="w-4">
       <FontAwesomeIcon size="xs" icon={faCog} />
     </button>
   );
